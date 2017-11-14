@@ -7,4 +7,4 @@ const multiply = (num, factor) => {
     }
 };
 
-console.log(multiply(8));
+console.log(multiply(16));
