@@ -1,0 +1,19 @@
+{
+  "name": "gitflow",
+  "version": "1.0.0",
+  "description": "Testing gitflow together with CircleCI",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benunternaehrer/gitflow-test.git"
+  },
+  "author": "Benjamin Unternährer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benunternaehrer/gitflow-test/issues"
+  },
+  "homepage": "https://github.com/benunternaehrer/gitflow-test#readme"
+}
