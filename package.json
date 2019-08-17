@@ -4,7 +4,7 @@
   "description": "Testing gitflow together with CircleCI",
   "main": "index.js",
   "scripts": {
-    "test": "node ./test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/benunternaehrer/gitflow-test/issues"
   },
-  "homepage": "https://github.com/benunternaehrer/gitflow-test#readme"
+  "homepage": "https://github.com/benunternaehrer/gitflow-test#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
 }
