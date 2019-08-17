@@ -6,4 +6,9 @@ describe('Multiplies correctly', () => {
         expect(result).toBe(4);
         done();
     });
+    it('3x3', done => {
+        const result = multiply(3, 3);
+        expect(result).toBe(9);
+        done();
+    });
 })
