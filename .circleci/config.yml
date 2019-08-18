@@ -54,6 +54,7 @@ workflows:
   setup_and_test:
     jobs:
       - setup
+          <<: *develop_only
       - test:
           <<: *develop_only
           requires:
