@@ -30,13 +30,13 @@ jobs:
       - run:
           name: Persist data
           command: |
-            mkdir -p /tmp/workspace/node_modules
+            mkdir -p /tmp/workspace
             shopt -s dotglob
-            mv node_modules/* /tmp/workspace/node_modules/
+            mv * /tmp/workspace/
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
-            - node_modules
+            - *
 
   test:
     executor: node-executer
@@ -45,18 +45,13 @@ jobs:
       - attach_workspace:
           at: /tmp/workspace
       - run:
-          name: Restore js
+          name: Restore data
           command: |
-            ls
-            mkdir node_modules
             shopt -s dotglob
-            mv /tmp/workspace/node_modules/* node_modules/
+            mv /tmp/workspace/* .
       - run:
           name: Test
-          command: |
-            ls
-            echo 'Running tests'
-            npm test
+          command: npm test
 
 workflows:
   version: 2
