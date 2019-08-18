@@ -36,10 +36,17 @@ jobs:
           key: node_modules-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - node_modules
+
   test:
     executor: node-executer
     steps:
       - checkout
+      - attach_workspace:
+        at: /
       - run:
           name: Test
           command: |
