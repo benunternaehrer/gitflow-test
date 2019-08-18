@@ -27,28 +27,19 @@ jobs:
           key: node_modules-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-      - run:
-          name: Persist data
-          command: |
-            mkdir -p /tmp/workspace
-            shopt -s dotglob
-            mv * /tmp/workspace/
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: .
           paths:
             - .
 
   test:
     executor: node-executer
     steps:
-      - checkout
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
       - run:
-          name: Restore data
-          command: |
-            shopt -s dotglob
-            mv /tmp/workspace/* .
+          name: list
+          command: ls
       - run:
           name: Test
           command: npm test
