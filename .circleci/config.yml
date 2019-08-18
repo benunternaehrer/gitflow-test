@@ -30,12 +30,11 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - node_modules
+            - /
 
   test:
     executor: node-executer
     steps:
-      - checkout
       - attach_workspace:
           at: /
       - run:
