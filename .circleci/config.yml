@@ -1,3 +1,12 @@
+develop_only: &develop_only
+  filters:
+    branches:
+      only: develop
+master_only: &master_only
+  filters:
+    branches:
+      only: master
+
 version: 2.1
 
 executors:
@@ -42,12 +51,10 @@ jobs:
 
 workflows:
   version: 2
-  setup_test:
+  setup_and_test:
     jobs:
       - setup
       - test:
+          <<: *develop_only
           requires:
             - setup
-          filters:
-            branches:
-              only: develop
