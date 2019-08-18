@@ -47,7 +47,7 @@ jobs:
           name: Restore js
           command: |
             set -exu
-            mkdir -p /tmp/workspace/node_modules
+            mkdir /node_modules
             mv /tmp/workspace/node_modules/* node_modules/
       - run:
           name: Test
