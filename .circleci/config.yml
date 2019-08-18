@@ -41,6 +41,7 @@ jobs:
   test:
     executor: node-executer
     steps:
+      - checkout
       - attach_workspace:
           at: /tmp/workspace
       - run:
