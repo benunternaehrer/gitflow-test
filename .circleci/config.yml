@@ -17,7 +17,6 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            ls
             if [ ! -d node_modules ]; then
               echo 'Installing npm dependencies'
               npm ci
@@ -38,15 +37,12 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: list
-          command: ls
-      - run:
           name: Test
           command: npm test
 
 workflows:
   version: 2
-  workflow_test:
+  setup_test:
     jobs:
       - setup
       - test:
