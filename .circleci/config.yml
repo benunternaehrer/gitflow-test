@@ -28,15 +28,15 @@ jobs:
           paths:
             - node_modules
       - persist_to_workspace:
-          root: ~/repo
+          root: /tmp/workspace
           paths:
-            - /
+            - node_modules
 
   test:
     executor: node-executer
     steps:
       - attach_workspace:
-          at: /
+          at: /tmp/workspace
       - run:
           name: Test
           command: |
