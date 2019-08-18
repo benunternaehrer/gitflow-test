@@ -1,9 +1,14 @@
-version: 2.0
-jobs:
-  setup:
+version: 2.1
+
+executors:
+  node-executer:
     docker:
       - image: circleci/node:10.16.3
     working_directory: ~/repo
+
+jobs:
+  setup:
+    executor: node-executer
     steps:
       - checkout
       - restore_cache:
@@ -12,6 +17,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            ls
             if [ ! -d node_modules ]; then
               echo 'Installing npm dependencies'
               npm ci
@@ -22,18 +28,17 @@ jobs:
           paths:
             - node_modules
   test:
-    docker:
-      - image: circleci/node:10.16.3
-    working_directory: ~/repo
+    executor: node-executer
     steps:
       - run:
           name: Test
           command: |
+            ls
             echo 'Running tests'
             npm test
 workflows:
   version: 2
-  test:
+  workflow_test:
     jobs:
       - setup
       - test:
