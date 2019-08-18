@@ -1,14 +1,5 @@
 version: 2.1
 
-workflows:
-  version: 2
-  workflow_test:
-    jobs:
-      - setup
-      - test:
-          requires:
-            - setup
-
 executors:
   node-executer:
     docker:
@@ -46,10 +37,19 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-        at: /
+          at: /
       - run:
           name: Test
           command: |
             ls
             echo 'Running tests'
             npm test
+
+workflows:
+  version: 2
+  workflow_test:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
