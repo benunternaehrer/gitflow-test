@@ -53,7 +53,7 @@ workflows:
   version: 2
   setup_and_test:
     jobs:
-      - setup
+      - setup:
           <<: *develop_only
       - test:
           <<: *develop_only
