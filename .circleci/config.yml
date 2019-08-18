@@ -39,6 +39,7 @@ jobs:
   test:
     executor: node-executer
     steps:
+      - checkout
       - run:
           name: Test
           command: |
