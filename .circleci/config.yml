@@ -1,3 +1,7 @@
+feature_only: &feature_only
+  filters:
+    branches:
+      only: /feature\/.*/
 develop_only: &develop_only
   filters:
     branches:
@@ -6,10 +10,6 @@ master_only: &master_only
   filters:
     branches:
       only: master
-feature_only: &feature_only
-  filters:
-    branches:
-      only: /feature\/.*/
 
 version: 2.1
 
