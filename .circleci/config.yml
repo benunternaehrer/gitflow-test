@@ -46,7 +46,7 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Test
+          name: Tests
           command: npm test
 
 workflows:
