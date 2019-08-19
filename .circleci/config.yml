@@ -1,3 +1,7 @@
+feature_only: &feature_only
+  filters:
+    branches:
+      only: /feature\/.*/
 develop_only: &develop_only
   filters:
     branches:
@@ -46,15 +50,15 @@ jobs:
       - attach_workspace:
           at: .
       - run:
-          name: Test
+          name: Tests
           command: npm test
 
 workflows:
   version: 2
   setup_and_test:
     jobs:
-      - setup
+      - setup:
+          <<: *feature_only
       - test:
-          <<: *develop_only
           requires:
             - setup
