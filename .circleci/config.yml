@@ -60,6 +60,5 @@ workflows:
       - setup:
           <<: *feature_only
       - test:
-          <<: *feature_only
           requires:
             - setup
